@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Pas d'indexation des partials PHP
+Disallow: /header.php
+Disallow: /footer.php
+
+# Sitemap
+Sitemap: https://moncherwattsun.fr/sitemap.xml
