@@ -83,8 +83,9 @@ if ($selected_ville) {
 $pros_json = json_encode($pros, JSON_UNESCAPED_UNICODE);
 
 $extra_head = '';
-if ($selected_ville && !empty($pros) && $MAPS_KEY) {
-    $extra_head = '<script src="https://maps.googleapis.com/maps/api/js?key=' . htmlspecialchars($MAPS_KEY) . '&callback=initMap" async defer></script>';
+if ($selected_ville && !empty($pros)) {
+    $extra_head = '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>';
+    $extra_head .= '<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>';
 }
 
 $extra_head .= '
@@ -330,93 +331,76 @@ require 'header.php';
   </div>
 </section>
 
-<!-- ══════ GOOGLE MAPS JS ══════ -->
-<?php if ($selected_ville && !empty($pros) && $MAPS_KEY): ?>
+<!-- ══════ LEAFLET MAPS JS ══════ -->
+<?php if ($selected_ville && !empty($pros)): ?>
 <script>
-const prosData = <?= $pros_json ?>;
-const villeLat = <?= $selected_ville['lat'] ?>;
-const villeLng = <?= $selected_ville['lng'] ?>;
+(function() {
+    const prosData = <?= $pros_json ?>;
+    const villeLat = <?= $selected_ville['lat'] ?>;
+    const villeLng = <?= $selected_ville['lng'] ?>;
+    const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    const tileAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
-function initMap() {
+    function createNumberIcon(number) {
+        return L.divIcon({
+            className: 'leaflet-numbered-icon',
+            html: '<div style="background:#0284c7;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);">' + number + '</div>',
+            iconSize: [28, 28],
+            iconAnchor: [14, 14],
+            popupAnchor: [0, -16]
+        });
+    }
+
     // ── Carte principale de la ville ──
-    const mapVille = new google.maps.Map(document.getElementById('map-ville'), {
-        center: { lat: villeLat, lng: villeLng },
-        zoom: 13,
-        mapTypeControl: false,
-        streetViewControl: false,
-        styles: [
-            { featureType: 'poi', stylers: [{ visibility: 'off' }] },
-            { featureType: 'transit', stylers: [{ visibility: 'off' }] }
-        ]
+    const mapVille = L.map('map-ville', {
+        center: [villeLat, villeLng],
+        zoom: 13
     });
+    L.tileLayer(tileUrl, { attribution: tileAttr, maxZoom: 19 }).addTo(mapVille);
 
-    const bounds = new google.maps.LatLngBounds();
+    const bounds = [];
 
     prosData.forEach(function(pro, idx) {
         if (!pro.lat || !pro.lng) return;
 
-        const pos = { lat: pro.lat, lng: pro.lng };
-        bounds.extend(pos);
+        bounds.push([pro.lat, pro.lng]);
 
-        // Marqueur sur la carte principale
-        const marker = new google.maps.Marker({
-            position: pos,
-            map: mapVille,
-            title: pro.nom,
-            label: {
-                text: String(idx + 1),
-                color: '#fff',
-                fontWeight: '700',
-                fontSize: '12px'
-            }
-        });
-
-        // Info-bulle au clic
         const rating = pro.note ? ' · ★ ' + pro.note.toFixed(1) : '';
         const phone = pro.telephone ? '<br>' + pro.telephone : '';
-        const infoWindow = new google.maps.InfoWindow({
-            content: '<div style="font-family:sans-serif;max-width:240px;">'
-                   + '<strong style="font-size:14px;">' + pro.nom + '</strong>' + rating
-                   + '<br><span style="font-size:12px;color:#666;">' + pro.adresse + '</span>'
-                   + '<span style="font-size:12px;">' + phone + '</span>'
-                   + '<br><a href="#pro-' + idx + '" style="font-size:12px;color:#0284c7;">Voir la fiche ↓</a>'
-                   + '</div>'
-        });
+        const popupContent = '<div style="font-family:sans-serif;max-width:240px;">'
+            + '<strong style="font-size:14px;">' + pro.nom + '</strong>' + rating
+            + '<br><span style="font-size:12px;color:#666;">' + pro.adresse + '</span>'
+            + '<span style="font-size:12px;">' + phone + '</span>'
+            + '<br><a href="#pro-' + idx + '" style="font-size:12px;color:#0284c7;">Voir la fiche ↓</a>'
+            + '</div>';
 
-        marker.addListener('click', function() {
-            infoWindow.open(mapVille, marker);
-        });
+        L.marker([pro.lat, pro.lng], { icon: createNumberIcon(idx + 1), title: pro.nom })
+            .addTo(mapVille)
+            .bindPopup(popupContent);
 
         // ── Mini-carte pour chaque pro ──
         const minimapEl = document.getElementById('minimap-' + idx);
         if (minimapEl) {
-            const minimap = new google.maps.Map(minimapEl, {
-                center: pos,
+            const minimap = L.map(minimapEl, {
+                center: [pro.lat, pro.lng],
                 zoom: 16,
-                mapTypeControl: false,
-                streetViewControl: false,
-                fullscreenControl: false,
                 zoomControl: false,
-                gestureHandling: 'none',
-                styles: [
-                    { featureType: 'poi', stylers: [{ visibility: 'off' }] },
-                    { featureType: 'transit', stylers: [{ visibility: 'off' }] }
-                ]
+                dragging: false,
+                scrollWheelZoom: false,
+                doubleClickZoom: false,
+                touchZoom: false,
+                attributionControl: false
             });
-
-            new google.maps.Marker({
-                position: pos,
-                map: minimap,
-                title: pro.nom
-            });
+            L.tileLayer(tileUrl, { maxZoom: 19 }).addTo(minimap);
+            L.marker([pro.lat, pro.lng], { title: pro.nom }).addTo(minimap);
         }
     });
 
     // Ajuster le zoom pour voir tous les marqueurs
-    if (prosData.length > 1) {
-        mapVille.fitBounds(bounds, { padding: 50 });
+    if (bounds.length > 1) {
+        mapVille.fitBounds(bounds, { padding: [50, 50] });
     }
-}
+})();
 </script>
 <?php endif; ?>
 
