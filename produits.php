@@ -15,210 +15,316 @@ function amazon_url(string $asin): string {
 // ── Catalogue produits ──
 $products = [
 
-    // ── Panneaux solaires
+    // ── Kits solaires résidentiels (autoconsommation)
     [
-        'id'       => 'panneau-renogy-400w',
-        'cat'      => 'panneaux',
-        'cat_label'=> 'Panneau solaire',
-        'name'     => 'Renogy 400W Monocristallin',
-        'brand'    => 'Renogy',
-        'desc'     => 'Panneau monocristallin 400 Wc haute efficacité. Idéal toiture, abri, pergola. Connecteurs MC4 inclus, cadre aluminium anodisé.',
-        'specs'    => ['400 Wc', 'Rendement 21%', 'IP68', 'MC4'],
-        'price'    => '~189 €',
-        'badge'    => 'Best-seller',
-        'badge_type'=> 'sun',
-        'asin'     => 'B09TGWX8BW',
-        'features' => ['Garantie 25 ans puissance', 'Résistance grêle et vent', 'Câble 1,2 m inclus'],
+        'cat' => 'kits-residentiels', 'cat_label' => 'Kit résidentiel',
+        'name' => 'Panneau Solaire 400W Monocristallin Autoconsommation',
+        'brand' => 'Générique', 'price' => '129 €', 'spec' => '400W',
+        'asin' => 'B0BYS3V334',
     ],
     [
-        'id'       => 'panneau-ecoflow-100w',
-        'cat'      => 'panneaux',
-        'cat_label'=> 'Panneau solaire',
-        'name'     => 'EcoFlow 100W Panneau rigide',
-        'brand'    => 'EcoFlow',
-        'desc'     => 'Panneau rigide 100 Wc compatible stations EcoFlow River et Delta. Léger (2,8 kg), installation facile.',
-        'specs'    => ['100 Wc', '21,6% rendement', 'IP68', '2,8 kg'],
-        'price'    => '~129 €',
-        'badge'    => '',
-        'badge_type'=> '',
-        'asin'     => 'B09TPMC4VN',
-        'features' => ['Compatible River / Delta / PowerStream', 'Connecteur XT60 inclus', 'Garantie 5 ans'],
-    ],
-
-    // ── Kits résidentiels
-    [
-        'id'       => 'kit-ecoflow-powerstream-800',
-        'cat'      => 'kit-residentiel',
-        'cat_label'=> 'Kit résidentiel',
-        'name'     => 'EcoFlow PowerStream 800W',
-        'brand'    => 'EcoFlow',
-        'desc'     => 'Micro-onduleur + 2 panneaux 400 Wc. Kit balcon ou terrasse plug-and-play. Compatible batterie EcoFlow pour stocker le surplus.',
-        'specs'    => ['800 Wc', '2 panneaux', 'Plug & Play', 'Wi-Fi inclus'],
-        'price'    => '~799 €',
-        'badge'    => 'Populaire',
-        'badge_type'=> 'sky',
-        'asin'     => 'B0CF6SH819',
-        'features' => ['Installation sans électricien', 'Suivi temps réel app EcoFlow', 'Compatible stockage Delta'],
+        'cat' => 'kits-residentiels', 'cat_label' => 'Kit résidentiel',
+        'name' => 'ECO-WORTHY Kit Panneau Solaire 240W + Régulateur 30A',
+        'brand' => 'ECO-WORTHY', 'price' => '189 €', 'spec' => '240W',
+        'asin' => 'B0DKWH9CKR',
     ],
     [
-        'id'       => 'kit-renogy-3kwc',
-        'cat'      => 'kit-residentiel',
-        'cat_label'=> 'Kit résidentiel',
-        'name'     => 'Kit solaire toiture 6 kWc Renogy',
-        'brand'    => 'Renogy',
-        'desc'     => '12 panneaux monocristallins 500 Wc + onduleur hybride + câblage. Pour maison principale. Installation par professionnel RGE recommandée.',
-        'specs'    => ['6 000 Wc', '12 panneaux', 'Onduleur hybride', 'Monocristallin'],
-        'price'    => '~5 800 €',
-        'badge'    => '',
-        'badge_type'=> '',
-        'asin'     => 'B09NNMKXY7',
-        'features' => ['Rendement > 21%', 'Garantie 25 ans puissance', 'Compatible stockage batterie'],
+        'cat' => 'kits-residentiels', 'cat_label' => 'Kit résidentiel',
+        'name' => 'ECO-WORTHY Kit Solaire 800W avec 4 Panneaux 195W',
+        'brand' => 'ECO-WORTHY', 'price' => '599 €', 'spec' => '800W',
+        'asin' => 'B0CG5MHQWG',
+    ],
+    [
+        'cat' => 'kits-residentiels', 'cat_label' => 'Kit résidentiel',
+        'name' => 'Zendure Kit Solaire Balcon 800W avec Micro-onduleur',
+        'brand' => 'Zendure', 'price' => '699 €', 'spec' => '800W',
+        'asin' => 'B0D7TCLMVZ',
+    ],
+    [
+        'cat' => 'kits-residentiels', 'cat_label' => 'Kit résidentiel',
+        'name' => 'EcoFlow PowerStream Kit Solaire Balcon 800W',
+        'brand' => 'EcoFlow', 'price' => '899 €', 'spec' => '800W',
+        'asin' => 'B0D3K5R84J',
+    ],
+    [
+        'cat' => 'kits-residentiels', 'cat_label' => 'Kit résidentiel',
+        'name' => 'Kit Autoconsommation 3000Wc Portrait Micro-onduleurs Enphase',
+        'brand' => 'VMH / Enphase', 'price' => '4 500 €', 'spec' => '3000W',
+        'asin' => 'B00NHT68MA',
+    ],
+    [
+        'cat' => 'kits-residentiels', 'cat_label' => 'Kit résidentiel',
+        'name' => 'enjoy solar Panneau Solaire Monocristallin 200W PERC 9BB',
+        'brand' => 'enjoy solar', 'price' => '89 €', 'spec' => '200W',
+        'asin' => 'B0CRPZP3WV',
     ],
 
-    // ── Kits balcon
+    // ── Kits solaires portables (rando, camping, van)
     [
-        'id'       => 'kit-balcon-anker-solix',
-        'cat'      => 'kit-balcon',
-        'cat_label'=> 'Kit balcon',
-        'name'     => 'Anker SOLIX RS40P Kit Balcon 800W',
-        'brand'    => 'Anker',
-        'desc'     => 'Kit balcon 2 × 400 Wc + micro-onduleur 800 W. Prise CEE 7/5 directe. Suivi via app. Idéal appartement ou terrasse sans autorisation.',
-        'specs'    => ['800 Wc', '2 panneaux', 'Prise normale', 'App incluse'],
-        'price'    => '~699 €',
-        'badge'    => 'Coup de cœur',
-        'badge_type'=> 'sun',
-        'asin'     => 'B0CXPBC12R',
-        'features' => ['Installation en 30 min', 'Monitoring temps réel', 'Garantie 5 ans'],
+        'cat' => 'kits-portables', 'cat_label' => 'Kit portable',
+        'name' => 'Jackery SolarSaga 100W Panneau Solaire Portable Pliable',
+        'brand' => 'Jackery', 'price' => '299 €', 'spec' => '100W',
+        'asin' => 'B09YWCB7JY',
     ],
     [
-        'id'       => 'kit-balcon-beem-400',
-        'cat'      => 'kit-balcon',
-        'cat_label'=> 'Kit balcon',
-        'name'     => 'Beem Energy Kit Balcon 400W',
-        'brand'    => 'Beem Energy',
-        'desc'     => 'Kit balcon 1 panneau 400 Wc + micro-onduleur. Solution d\'entrée pour commencer à produire depuis son balcon sans engagement.',
-        'specs'    => ['400 Wc', '1 panneau', 'Plug & Play', 'Prise normale'],
-        'price'    => '~399 €',
-        'badge'    => 'Entrée de gamme',
-        'badge_type'=> 'orange',
-        'asin'     => 'B0CXYZ5678',
-        'features' => ['Pose rapide sans outil', 'Compatible tout balcon', 'Garantie 2 ans'],
-    ],
-
-    // ── Kits portables
-    [
-        'id'       => 'jackery-solar-1000-plus',
-        'cat'      => 'kit-portable',
-        'cat_label'=> 'Kit portable',
-        'name'     => 'Jackery Solar Generator 1000 Plus',
-        'brand'    => 'Jackery',
-        'desc'     => 'Station 1 kWh LiFePO4 + 2 panneaux SolarSaga 100W. Van, camping, coupures. Recharge complète en 1h45 plein soleil.',
-        'specs'    => ['1 kWh', '200 Wc', 'LiFePO4', '14,6 kg'],
-        'price'    => '~1 199 €',
-        'badge'    => 'Top van life',
-        'badge_type'=> 'green',
-        'asin'     => 'B0CQS91BSC',
-        'features' => ['3 000 cycles LiFePO4', 'Application Jackery', 'Garantie 5 ans'],
+        'cat' => 'kits-portables', 'cat_label' => 'Kit portable',
+        'name' => 'BLUETTI PV200 Panneau Solaire Portable 200W',
+        'brand' => 'BLUETTI', 'price' => '449 €', 'spec' => '200W',
+        'asin' => 'B0B5YPCLJT',
     ],
     [
-        'id'       => 'bluetti-ac180-pv200',
-        'cat'      => 'kit-portable',
-        'cat_label'=> 'Kit portable',
-        'name'     => 'Bluetti AC180 + Panneau PV200',
-        'brand'    => 'Bluetti',
-        'desc'     => 'Station 1 152 Wh LiFePO4 + panneau pliant 200 Wc. 3 500 cycles garantis. Idéal autonomie prolongée ou backup maison.',
-        'specs'    => ['1 152 Wh', '200 Wc', 'LiFePO4', 'IP65 panneau'],
-        'price'    => '~1 099 €',
-        'badge'    => '',
-        'badge_type'=> '',
-        'asin'     => 'B0BNQFQX6Y',
-        'features' => ['3 500+ cycles', 'MPPT 700W max', 'Garantie 5 ans'],
+        'cat' => 'kits-portables', 'cat_label' => 'Kit portable',
+        'name' => 'EcoFlow 160W Panneau Solaire Portable Pliable',
+        'brand' => 'EcoFlow', 'price' => '369 €', 'spec' => '160W',
+        'asin' => 'B09WB2KGLF',
     ],
     [
-        'id'       => 'ecoflow-river3-80w',
-        'cat'      => 'kit-portable',
-        'cat_label'=> 'Kit portable',
-        'name'     => 'EcoFlow River 3 + 80W',
-        'brand'    => 'EcoFlow',
-        'desc'     => 'Station compacte 245 Wh + panneau pliant 80W. Ultra-léger (3,5 kg). Festival, trekking, van débutant.',
-        'specs'    => ['245 Wh', '80 Wc', 'LiFePO4', '3,5 kg'],
-        'price'    => '~299 €',
-        'badge'    => 'Ultra compact',
-        'badge_type'=> 'orange',
-        'asin'     => 'B0D1QWERTY',
-        'features' => ['Recharge en 3h soleil', 'Port USB-C 100W', 'Garantie 5 ans'],
+        'cat' => 'kits-portables', 'cat_label' => 'Kit portable',
+        'name' => 'DOKIO 100W Panneau Solaire Pliable pour Camping-Car',
+        'brand' => 'DOKIO', 'price' => '99 €', 'spec' => '100W',
+        'asin' => 'B0B8ZK1QNK',
+    ],
+    [
+        'cat' => 'kits-portables', 'cat_label' => 'Kit portable',
+        'name' => 'ECO-WORTHY Kit Solaire 120W Pliable Camping avec Régulateur',
+        'brand' => 'ECO-WORTHY', 'price' => '149 €', 'spec' => '120W',
+        'asin' => 'B0BN1HP6HG',
+    ],
+    [
+        'cat' => 'kits-portables', 'cat_label' => 'Kit portable',
+        'name' => 'ALLPOWERS 200W Panneau Solaire Pliable Portable',
+        'brand' => 'ALLPOWERS', 'price' => '259 €', 'spec' => '200W',
+        'asin' => 'B0CDY4FQ7F',
     ],
 
-    // ── Batteries
+    // ── Batteries de stockage domestique
     [
-        'id'       => 'pylontech-us3000c',
-        'cat'      => 'batterie',
-        'cat_label'=> 'Batterie de stockage',
-        'name'     => 'Pylontech US3000C 3,5 kWh',
-        'brand'    => 'Pylontech',
-        'desc'     => 'Batterie rack LiFePO4 pour installation solaire résidentielle. Compatible onduleurs hybrides majeurs (Goodwe, SMA, Huawei, Victron…).',
-        'specs'    => ['3,5 kWh', 'LiFePO4', '6 000 cycles', 'Rack 19"'],
-        'price'    => '~1 450 €',
-        'badge'    => 'Référence pro',
-        'badge_type'=> 'dark',
-        'asin'     => 'B09GDK3JZP',
-        'features' => ['Compatible tous onduleurs hybrides majeurs', 'BMS intégré', 'Extensible jusqu\'à 74 kWh'],
+        'cat' => 'batteries-stockage', 'cat_label' => 'Batterie de stockage',
+        'name' => 'ECO-WORTHY Batterie LiFePO4 12V 100Ah',
+        'brand' => 'ECO-WORTHY', 'price' => '259 €', 'spec' => '100Ah / 1280Wh',
+        'asin' => 'B0C5LFN2KR',
     ],
     [
-        'id'       => 'growatt-ark-5kwh',
-        'cat'      => 'batterie',
-        'cat_label'=> 'Batterie de stockage',
-        'name'     => 'Growatt ARK 5.1H-A1',
-        'brand'    => 'Growatt',
-        'desc'     => 'Batterie haute tension LiFePO4 empilable 5,1 kWh. Conçue pour les onduleurs hybrides Growatt MIN, MID, MAX.',
-        'specs'    => ['5,1 kWh', 'Haute tension', 'LiFePO4', 'Empilable ×4'],
-        'price'    => '~2 100 €',
-        'badge'    => '',
-        'badge_type'=> '',
-        'asin'     => 'B0B12ABCDE',
-        'features' => ['IP55', '10 ans de garantie', 'BUS haute tension'],
+        'cat' => 'batteries-stockage', 'cat_label' => 'Batterie de stockage',
+        'name' => 'BLUETTI B300 Batterie Extension 3072Wh LiFePO4',
+        'brand' => 'BLUETTI', 'price' => '2 199 €', 'spec' => '3072Wh',
+        'asin' => 'B0BTFLRZ35',
+    ],
+    [
+        'cat' => 'batteries-stockage', 'cat_label' => 'Batterie de stockage',
+        'name' => 'EcoFlow DELTA 2 Max Batterie Supplémentaire 2048Wh',
+        'brand' => 'EcoFlow', 'price' => '1 599 €', 'spec' => '2048Wh',
+        'asin' => 'B0BXJV25WQ',
+    ],
+    [
+        'cat' => 'batteries-stockage', 'cat_label' => 'Batterie de stockage',
+        'name' => 'LIONTRON Batterie LiFePO4 12V 200Ah',
+        'brand' => 'LIONTRON', 'price' => '799 €', 'spec' => '200Ah / 2560Wh',
+        'asin' => 'B09N3WNXLG',
+    ],
+    [
+        'cat' => 'batteries-stockage', 'cat_label' => 'Batterie de stockage',
+        'name' => 'Redodo Batterie LiFePO4 12V 100Ah Mini',
+        'brand' => 'Redodo', 'price' => '199 €', 'spec' => '100Ah / 1280Wh',
+        'asin' => 'B0CNXQJYFH',
+    ],
+    [
+        'cat' => 'batteries-stockage', 'cat_label' => 'Batterie de stockage',
+        'name' => 'Zendure SolarFlow Batterie AB2000 1920Wh',
+        'brand' => 'Zendure', 'price' => '799 €', 'spec' => '1920Wh',
+        'asin' => 'B0B7F3GYW8',
     ],
 
     // ── Micro-onduleurs
     [
-        'id'       => 'enphase-iq8a',
-        'cat'      => 'micro-onduleur',
-        'cat_label'=> 'Micro-onduleur',
-        'name'     => 'Enphase IQ8A',
-        'brand'    => 'Enphase',
-        'desc'     => 'Micro-onduleur de référence, 1 par panneau. Maximisation individuelle, résistance à l\'ombre partielle, monitoring par panneau.',
-        'specs'    => ['366 W AC', 'MPPT individuel', 'Monitoring inclus', 'IP67'],
-        'price'    => '~165 €/unité',
-        'badge'    => 'Standard industrie',
-        'badge_type'=> 'sky',
-        'asin'     => 'B0BMNPQRST',
-        'features' => ['25 ans de garantie', 'Pas de point de défaillance unique', 'Rapport Envoy Cloud'],
+        'cat' => 'micro-onduleurs', 'cat_label' => 'Micro-onduleur',
+        'name' => 'Hoymiles HMS-800W-2T Micro-onduleur',
+        'brand' => 'Hoymiles', 'price' => '179 €', 'spec' => '800W',
+        'asin' => 'B0CQ1NFSBC',
     ],
     [
-        'id'       => 'aps-ds3-1000w',
-        'cat'      => 'micro-onduleur',
-        'cat_label'=> 'Micro-onduleur',
-        'name'     => 'APS DS3 1 000W',
-        'brand'    => 'APS',
-        'desc'     => 'Micro-onduleur double entrée 1 000W AC. 2 panneaux par unité. Bon rapport qualité/prix pour installations résidentielles.',
-        'specs'    => ['1 000 W AC', 'Double MPPT', 'IP67', '10 ans'],
-        'price'    => '~129 €/unité',
-        'badge'    => 'Bon rapport Q/P',
-        'badge_type'=> 'sun',
-        'asin'     => 'B09ABCDEF1',
-        'features' => ['2 panneaux / micro-onduleur', 'Monitoring ECU inclus', 'Compatible AC Bus'],
+        'cat' => 'micro-onduleurs', 'cat_label' => 'Micro-onduleur',
+        'name' => 'Hoymiles HM-400 Micro-onduleur 400W',
+        'brand' => 'Hoymiles', 'price' => '119 €', 'spec' => '400W',
+        'asin' => 'B0BPLNXKZ4',
+    ],
+    [
+        'cat' => 'micro-onduleurs', 'cat_label' => 'Micro-onduleur',
+        'name' => 'EcoFlow PowerStream Micro-onduleur 800W',
+        'brand' => 'EcoFlow', 'price' => '299 €', 'spec' => '800W',
+        'asin' => 'B0D3K5GGPQ',
+    ],
+    [
+        'cat' => 'micro-onduleurs', 'cat_label' => 'Micro-onduleur',
+        'name' => 'Deye SUN600G3-EU-230 Micro-onduleur 600W',
+        'brand' => 'Deye', 'price' => '139 €', 'spec' => '600W',
+        'asin' => 'B0CCQP91RJ',
+    ],
+    [
+        'cat' => 'micro-onduleurs', 'cat_label' => 'Micro-onduleur',
+        'name' => 'Zendure Micro-onduleur 900W avec App',
+        'brand' => 'Zendure', 'price' => '249 €', 'spec' => '900W',
+        'asin' => 'B0D7TCMHKV',
+    ],
+
+    // ── Chargeurs solaires (téléphone, laptop)
+    [
+        'cat' => 'chargeurs-solaires', 'cat_label' => 'Chargeur solaire',
+        'name' => 'Anker 625 Panneau Solaire 100W USB',
+        'brand' => 'Anker', 'price' => '199 €', 'spec' => '100W',
+        'asin' => 'B09TVVKWFV',
+    ],
+    [
+        'cat' => 'chargeurs-solaires', 'cat_label' => 'Chargeur solaire',
+        'name' => 'BigBlue Chargeur Solaire 28W USB 3 Ports',
+        'brand' => 'BigBlue', 'price' => '59 €', 'spec' => '28W',
+        'asin' => 'B0B7G3J7N1',
+    ],
+    [
+        'cat' => 'chargeurs-solaires', 'cat_label' => 'Chargeur solaire',
+        'name' => 'Nekteck Chargeur Solaire 28W USB Pliable',
+        'brand' => 'Nekteck', 'price' => '49 €', 'spec' => '28W',
+        'asin' => 'B08DFXPS4J',
+    ],
+    [
+        'cat' => 'chargeurs-solaires', 'cat_label' => 'Chargeur solaire',
+        'name' => 'Jackery SolarSaga 40W Mini Panneau USB-C + USB-A',
+        'brand' => 'Jackery', 'price' => '79 €', 'spec' => '40W',
+        'asin' => 'B0CGJ3X5C8',
+    ],
+    [
+        'cat' => 'chargeurs-solaires', 'cat_label' => 'Chargeur solaire',
+        'name' => 'EcoFlow 220W Panneau Solaire Bifacial Portable',
+        'brand' => 'EcoFlow', 'price' => '449 €', 'spec' => '220W',
+        'asin' => 'B0BQST9Y9B',
+    ],
+
+    // ── Panneaux solaires piscine / chauffage eau
+    [
+        'cat' => 'solaire-piscine', 'cat_label' => 'Solaire piscine',
+        'name' => 'Bestway Chauffage Solaire Piscine 110x171cm',
+        'brand' => 'Bestway', 'price' => '39 €', 'spec' => 'Tapis chauffant',
+        'asin' => 'B0828C8CYN',
+    ],
+    [
+        'cat' => 'solaire-piscine', 'cat_label' => 'Solaire piscine',
+        'name' => 'Intex Chauffage Solaire pour Piscine Hors-Sol',
+        'brand' => 'Intex', 'price' => '49 €', 'spec' => 'Panneau chauffant',
+        'asin' => 'B00B1OS4WC',
+    ],
+    [
+        'cat' => 'solaire-piscine', 'cat_label' => 'Solaire piscine',
+        'name' => 'KESSER Chauffage Solaire Piscine XXL Lot de 2',
+        'brand' => 'KESSER', 'price' => '79 €', 'spec' => 'Collecteur solaire',
+        'asin' => 'B09X1NKSH6',
+    ],
+    [
+        'cat' => 'solaire-piscine', 'cat_label' => 'Solaire piscine',
+        'name' => 'Bâche Solaire Ronde 366cm pour Piscine (8mm)',
+        'brand' => 'Générique', 'price' => '29 €', 'spec' => 'Bâche solaire',
+        'asin' => 'B01DSTCMR0',
+    ],
+    [
+        'cat' => 'solaire-piscine', 'cat_label' => 'Solaire piscine',
+        'name' => 'Steinbach Chauffage Solaire Speed Solar 49123',
+        'brand' => 'Steinbach', 'price' => '89 €', 'spec' => 'Collecteur solaire',
+        'asin' => 'B0CP4H7V56',
+    ],
+
+    // ── Accessoires (câbles, fixations, monitoring)
+    [
+        'cat' => 'accessoires', 'cat_label' => 'Accessoire',
+        'name' => 'ECO-WORTHY Régulateur de Charge MPPT 30A 12V/24V',
+        'brand' => 'ECO-WORTHY', 'price' => '69 €', 'spec' => 'Régulateur MPPT',
+        'asin' => 'B0BVHXKBLV',
+    ],
+    [
+        'cat' => 'accessoires', 'cat_label' => 'Accessoire',
+        'name' => 'Câbles MC4 Extension 5m (lot de 2)',
+        'brand' => 'Générique', 'price' => '12 €', 'spec' => 'Câble MC4',
+        'asin' => 'B08R5BDHGP',
+    ],
+    [
+        'cat' => 'accessoires', 'cat_label' => 'Accessoire',
+        'name' => 'Kit Fixation Z Panneaux Solaires (lot de 4)',
+        'brand' => 'Générique', 'price' => '15 €', 'spec' => 'Fixation',
+        'asin' => 'B0BTJM8NFF',
+    ],
+    [
+        'cat' => 'accessoires', 'cat_label' => 'Accessoire',
+        'name' => 'Victron SmartSolar MPPT 100/20 Régulateur Bluetooth',
+        'brand' => 'Victron Energy', 'price' => '139 €', 'spec' => 'Régulateur MPPT',
+        'asin' => 'B0B4N2T2H1',
+    ],
+    [
+        'cat' => 'accessoires', 'cat_label' => 'Accessoire',
+        'name' => 'Shelly EM Compteur d\'Énergie WiFi pour Monitoring Solaire',
+        'brand' => 'Shelly', 'price' => '39 €', 'spec' => 'Monitoring',
+        'asin' => 'B0BG7DB8KM',
+    ],
+    [
+        'cat' => 'accessoires', 'cat_label' => 'Accessoire',
+        'name' => 'Connecteurs MC4 Mâle/Femelle (lot de 5 paires)',
+        'brand' => 'Générique', 'price' => '9 €', 'spec' => 'Connecteur',
+        'asin' => 'B0CNW84HYN',
+    ],
+
+    // ── Stations électriques portables
+    [
+        'cat' => 'stations-electriques', 'cat_label' => 'Station portable',
+        'name' => 'BLUETTI AC180 Générateur 1152Wh LiFePO4 1800W',
+        'brand' => 'BLUETTI', 'price' => '799 €', 'spec' => '1152Wh',
+        'asin' => 'B09QKMFT1W',
+    ],
+    [
+        'cat' => 'stations-electriques', 'cat_label' => 'Station portable',
+        'name' => 'EcoFlow DELTA 2 Station Portable 1024Wh LFP',
+        'brand' => 'EcoFlow', 'price' => '849 €', 'spec' => '1024Wh',
+        'asin' => 'B09PPMXZPG',
+    ],
+    [
+        'cat' => 'stations-electriques', 'cat_label' => 'Station portable',
+        'name' => 'Jackery Explorer 1000 Centrale Portable 1002Wh',
+        'brand' => 'Jackery', 'price' => '999 €', 'spec' => '1002Wh',
+        'asin' => 'B09N3Q1R14',
+    ],
+    [
+        'cat' => 'stations-electriques', 'cat_label' => 'Station portable',
+        'name' => 'BLUETTI EB3A Station Portable 268Wh LiFePO4 600W',
+        'brand' => 'BLUETTI', 'price' => '249 €', 'spec' => '268Wh',
+        'asin' => 'B09YRZG7J9',
+    ],
+    [
+        'cat' => 'stations-electriques', 'cat_label' => 'Station portable',
+        'name' => 'EcoFlow RIVER 2 Max Station 512Wh 500W',
+        'brand' => 'EcoFlow', 'price' => '449 €', 'spec' => '512Wh',
+        'asin' => 'B09PPKY4KK',
+    ],
+    [
+        'cat' => 'stations-electriques', 'cat_label' => 'Station portable',
+        'name' => 'BLUETTI AC200MAX 2048Wh LiFePO4 2200W',
+        'brand' => 'BLUETTI', 'price' => '1 599 €', 'spec' => '2048Wh',
+        'asin' => 'B0BTFLRZ35',
+    ],
+    [
+        'cat' => 'stations-electriques', 'cat_label' => 'Station portable',
+        'name' => 'Anker SOLIX C1000 Station Portable 1056Wh',
+        'brand' => 'Anker', 'price' => '699 €', 'spec' => '1056Wh',
+        'asin' => 'B0D1CZ17Y5',
     ],
 ];
 
 // Catégories de filtre
 $categories = [
-    'all'            => 'Tous',
-    'panneaux'       => 'Panneaux',
-    'kit-residentiel'=> 'Kits résidentiels',
-    'kit-balcon'     => 'Kits balcon',
-    'kit-portable'   => 'Kits portables',
-    'batterie'       => 'Batteries',
-    'micro-onduleur' => 'Micro-onduleurs',
+    'all'                 => 'Tous',
+    'kits-residentiels'   => 'Kits résidentiels',
+    'kits-portables'      => 'Kits portables',
+    'batteries-stockage'  => 'Batteries',
+    'micro-onduleurs'     => 'Micro-onduleurs',
+    'chargeurs-solaires'  => 'Chargeurs',
+    'solaire-piscine'     => 'Piscine',
+    'accessoires'         => 'Accessoires',
+    'stations-electriques'=> 'Stations portables',
 ];
 
 $extra_head = '
@@ -277,57 +383,35 @@ require 'header.php';
       <?php endforeach; ?>
     </div>
 
-    <!-- Ancres pour navigation -->
-    <div id="panneaux"></div>
-    <div id="kits-residentiel"></div>
-    <div id="kits-balcon"></div>
-    <div id="kits-portable"></div>
-    <div id="batteries"></div>
-
     <!-- Grille produits -->
     <div class="product-grid reveal-on-scroll" id="product-grid">
       <?php foreach ($products as $p): ?>
       <article class="product-card" data-cat="<?= $p['cat'] ?>" itemscope itemtype="https://schema.org/Product">
         <div class="product-thumb">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-            <?php if ($p['cat'] === 'panneaux'): ?>
-            <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/>
-            <?php elseif ($p['cat'] === 'kit-portable' || $p['cat'] === 'batterie'): ?>
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-            <?php elseif ($p['cat'] === 'micro-onduleur'): ?>
-            <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
-            <?php elseif ($p['cat'] === 'kit-balcon'): ?>
-            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-            <?php else: ?>
+            <?php if ($p['cat'] === 'kits-residentiels'): ?>
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            <?php elseif ($p['cat'] === 'kits-portables'): ?>
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            <?php elseif ($p['cat'] === 'batteries-stockage' || $p['cat'] === 'stations-electriques'): ?>
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            <?php elseif ($p['cat'] === 'micro-onduleurs'): ?>
+            <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+            <?php elseif ($p['cat'] === 'chargeurs-solaires'): ?>
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+            <?php elseif ($p['cat'] === 'solaire-piscine'): ?>
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <?php else: ?>
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
             <?php endif; ?>
           </svg>
-          <?php if ($p['badge']): ?>
-          <div class="product-badge-top">
-            <span class="badge badge-<?= $p['badge_type'] ?>"><?= htmlspecialchars($p['badge']) ?></span>
-          </div>
-          <?php endif; ?>
         </div>
         <div class="product-body">
           <div class="product-category"><?= htmlspecialchars($p['cat_label']) ?> · <?= htmlspecialchars($p['brand']) ?></div>
           <h3 class="product-name" itemprop="name"><?= htmlspecialchars($p['name']) ?></h3>
-          <p class="product-desc" itemprop="description"><?= htmlspecialchars($p['desc']) ?></p>
           <div class="product-specs">
-            <?php foreach ($p['specs'] as $spec): ?>
-              <span class="spec-chip"><?= htmlspecialchars($spec) ?></span>
-            <?php endforeach; ?>
+            <span class="spec-chip"><?= htmlspecialchars($p['spec']) ?></span>
           </div>
-
-          <!-- Points forts -->
-          <ul style="margin:0 0 14px; padding:0; list-style:none;">
-            <?php foreach ($p['features'] as $feat): ?>
-              <li style="display:flex; align-items:center; gap:7px; font-size:.81rem; color:var(--gray); margin-bottom:5px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--success); flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
-                <?= htmlspecialchars($feat) ?>
-              </li>
-            <?php endforeach; ?>
-          </ul>
-
           <div class="product-footer">
             <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <span class="from">à partir de</span>
@@ -395,11 +479,14 @@ window.addEventListener('DOMContentLoaded', function() {
   const hash = window.location.hash;
   if (hash) {
     const catMap = {
-      '#panneaux': 'panneaux',
-      '#kits-residentiel': 'kit-residentiel',
-      '#kits-balcon': 'kit-balcon',
-      '#kits-portable': 'kit-portable',
-      '#batteries': 'batterie',
+      '#kits-residentiels': 'kits-residentiels',
+      '#kits-portables': 'kits-portables',
+      '#batteries-stockage': 'batteries-stockage',
+      '#micro-onduleurs': 'micro-onduleurs',
+      '#chargeurs-solaires': 'chargeurs-solaires',
+      '#solaire-piscine': 'solaire-piscine',
+      '#accessoires': 'accessoires',
+      '#stations-electriques': 'stations-electriques',
     };
     if (catMap[hash]) {
       const btn = document.querySelector('[data-cat="' + catMap[hash] + '"]');
