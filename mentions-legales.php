@@ -26,10 +26,6 @@ require 'header.php';
       <p>Le contenu éditorial, les textes, les outils et le code source du site sont la propriété de l'éditeur. Toute reproduction, même partielle, sans accord écrit préalable est interdite.</p>
       <p>Les données de production solaire proviennent de l'API PVGIS du Centre Commun de Recherche (JRC) de la Commission Européenne — licence ouverte. Les données d'entreprises proviennent de l'API Sirene/DINUM — données publiques INSEE.</p>
 
-      <h2>Liens affiliés Amazon</h2>
-      <p>Ce site participe au <strong>Programme Partenaires d'Amazon EU</strong>. Les liens identifiés "Amazon" sur les pages du comparateur sont des liens affiliés. En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats remplissant les conditions requises. Le tag affilié utilisé est : <code>sciecircula00-21</code>.</p>
-      <p>La présence de liens affiliés ne conditionne pas la sélection éditoriale des produits présentés.</p>
-
       <h2>Responsabilité</h2>
       <p>Les informations contenues sur ce site sont données à titre informatif. Elles ne constituent pas des conseils financiers, fiscaux ou techniques. L'éditeur ne peut être tenu responsable des décisions prises sur la base des informations publiées.</p>
       <p>Les estimations produites par le simulateur PVGIS sont des <strong>valeurs indicatives</strong> basées sur des données météorologiques historiques. Elles ne constituent pas une garantie de production.</p>

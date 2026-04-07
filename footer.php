@@ -12,7 +12,7 @@
           </div>
           <span class="logo-text" style="color:white;">Mon cher <span>WattSun</span></span>
         </a>
-        <p>Outils et ressources sur l'énergie solaire en France. Simulateurs, aides financières, annuaire pros, produits.</p>
+        <p>Outils et ressources sur l'énergie solaire en France. Simulateurs, aides financières, annuaire pros.</p>
         <div class="footer-social">
           <a href="#" class="social-link" aria-label="Twitter/X">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -38,36 +38,9 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
             Aides &amp; subventions 2026
           </a></li>
-          <li><a href="/produits">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            Produits solaires
-          </a></li>
           <li><a href="/annuaire">
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
             Annuaire installateurs
-          </a></li>
-        </ul>
-      </div>
-
-      <!-- Produits -->
-      <div>
-        <p class="footer-heading">Produits solaires</p>
-        <ul class="footer-links">
-          <li><a href="/produits#kits-residentiel">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            Kits résidentiels
-          </a></li>
-          <li><a href="/produits#kits-portable">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            Kits portables &amp; van
-          </a></li>
-          <li><a href="/produits#batteries">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            Batteries de stockage
-          </a></li>
-          <li><a href="/produits#panneaux">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            Panneaux solaires
           </a></li>
         </ul>
       </div>

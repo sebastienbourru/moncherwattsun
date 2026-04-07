@@ -1,6 +1,6 @@
 <?php
-$page_title = "Mon cher WattSun — Énergie solaire : simulateur, aides, produits & pros";
-$meta_desc  = "Simulateur PVGIS gratuit, aides financières 2026, annuaire pros RGE et produits solaires. Passez au solaire — c'est maintenant.";
+$page_title = "Mon cher WattSun — Énergie solaire : simulateur, aides & pros";
+$meta_desc  = "Simulateur PVGIS gratuit, aides financières 2026, annuaire pros RGE. Passez au solaire — c'est maintenant.";
 $canonical  = "https://moncherwattsun.fr/";
 $active_page = 'home';
 require 'header.php';
@@ -233,23 +233,9 @@ require 'header.php';
         </a>
       </div>
 
-      <!-- Produits -->
-      <div class="module-card">
-        <div class="module-num">03</div>
-        <div class="card-icon" style="background:#D1FAE5; color:#065F46;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <h3 class="module-title">Produits solaires</h3>
-        <p class="module-desc">Kits résidentiels, kits balcon, portables van/rando, batteries, panneaux, micro-onduleurs. Fiches techniques, comparatifs et liens marchands.</p>
-        <a href="/produits" class="module-link">
-          Explorer les produits
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-      </div>
-
       <!-- Annuaire -->
       <div class="module-card">
-        <div class="module-num">04</div>
+        <div class="module-num">03</div>
         <div class="card-icon" style="background:#EDE9FE; color:#5B21B6;">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
@@ -289,7 +275,7 @@ require 'header.php';
         </div>
         <h3>Locataire ou appartement</h3>
         <p>Kit balcon plug-and-play jusqu'à 800 W, sans autorisation. Production directe sur prise secteur. Idéal pour réduire sa facture sans travaux.</p>
-        <a href="/produits#kits-balcon" class="module-link" style="justify-content:center; margin-top:14px; color:var(--sky-dark);">Voir les kits balcon →</a>
+        <a href="/simulateur" class="module-link" style="justify-content:center; margin-top:14px; color:var(--sky-dark);">Simuler mon potentiel →</a>
       </div>
       <div class="card" style="text-align:center;">
         <div class="card-icon" style="margin:0 auto 20px; background:#D1FAE5; color:#065F46;">
@@ -297,7 +283,7 @@ require 'header.php';
         </div>
         <h3>Van, camping &amp; nomade</h3>
         <p>Stations solaires portables de 200 Wh à 2 kWh. Rechargez en déplacement, alimentez vos appareils n'importe où. Technologie LiFePO4.</p>
-        <a href="/produits#kits-portable" class="module-link" style="justify-content:center; margin-top:14px; color:#065F46;">Voir les kits portables →</a>
+        <a href="/simulateur" class="module-link" style="justify-content:center; margin-top:14px; color:#065F46;">Simuler mon potentiel →</a>
       </div>
     </div>
   </div>
@@ -348,8 +334,8 @@ require 'header.php';
         <div class="card-icon" style="margin:0 auto 20px; background:var(--sky-light); color:var(--sky-dark);">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         </div>
-        <h3>Transparence affilié</h3>
-        <p>Ce site est affilié Amazon. On le dit clairement. Notre sélection de produits reste indépendante.</p>
+        <h3>Transparence totale</h3>
+        <p>Aucun contenu sponsorisé. On vous donne les outils, les chiffres et les sources — vous décidez.</p>
       </div>
       <div class="card" style="text-align:center;">
         <div class="card-icon" style="margin:0 auto 20px; background:#D1FAE5; color:#065F46;">
@@ -369,7 +355,7 @@ require 'header.php';
   "@type": "WebSite",
   "name": "Mon cher WattSun",
   "url": "https://moncherwattsun.fr",
-  "description": "Simulateur solaire PVGIS, aides financières, annuaire pros RGE, produits solaires en France.",
+  "description": "Simulateur solaire PVGIS, aides financières, annuaire pros RGE en France.",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://moncherwattsun.fr/annuaire?q={search_term_string}",

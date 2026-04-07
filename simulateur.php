@@ -366,7 +366,6 @@ $villes_json = json_encode($VILLES, JSON_UNESCAPED_UNICODE);
     <div style="margin-top:64px; text-align:center;" class="reveal-on-scroll">
       <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
         <a href="/aides" class="btn btn-outline">Aides financières 2026</a>
-        <a href="/produits" class="btn btn-dark">Produits solaires</a>
         <a href="/annuaire" class="btn btn-secondary">Trouver un installateur</a>
       </div>
     </div>
