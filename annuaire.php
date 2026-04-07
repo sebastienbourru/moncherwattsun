@@ -60,6 +60,11 @@ if ($selected_ville) {
     if (file_exists($cache_file)) {
         $pros = json_decode(file_get_contents($cache_file), true) ?: [];
         $cache_date = date('d/m/Y', filemtime($cache_file));
+        // Filtrer les entreprises fermées
+        $pros = array_values(array_filter($pros, function($p) {
+            $s = $p['statut'] ?? 'OPERATIONAL';
+            return $s !== 'CLOSED_TEMPORARILY' && $s !== 'CLOSED_PERMANENTLY';
+        }));
     }
 
     // Tri selon le paramètre
@@ -121,6 +126,20 @@ $extra_head .= '
 .pro-detail a:hover{color:var(--sky);}
 .pro-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
 .pro-bottom{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.pro-types{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.pro-type-tag{background:#EDE9FE;color:#5B21B6;font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:6px;}
+.pro-reviews{margin-top:16px;padding-top:16px;border-top:1px solid #e5e7eb;}
+.pro-reviews-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.pro-reviews-title{font-size:.82rem;font-weight:700;color:var(--dark);}
+.pro-reviews-nav{display:flex;gap:4px;}
+.review-arrow{width:28px;height:28px;border-radius:50%;border:1px solid #e5e7eb;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;color:var(--gray);}
+.review-arrow:hover{border-color:var(--sky);color:var(--sky);background:var(--sky-xlight,#f0f9ff);}
+.pro-review-card{background:#f9fafb;border-radius:10px;padding:14px 16px;}
+.review-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;font-size:.8rem;}
+.review-meta strong{color:var(--dark);}
+.review-stars{color:#f59e0b;font-size:.78rem;letter-spacing:1px;}
+.review-date{color:var(--gray);font-size:.72rem;}
+.review-text{font-size:.82rem;color:var(--gray);line-height:1.6;margin:0;}
 @media(max-width:768px){
   .pro-bottom{grid-template-columns:1fr;}
   .pro-header{flex-wrap:wrap;}
@@ -231,6 +250,13 @@ require 'header.php';
             <span class="pro-rating">★&nbsp;<?= number_format($pro['note'], 1, ',', '') ?></span>
             <span class="pro-avis"><?= $pro['nb_avis'] ?>&nbsp;avis Google</span>
             <?php endif; ?>
+            <?php if (!empty($pro['types'])): ?>
+            <div class="pro-types">
+              <?php foreach ($pro['types'] as $type): ?>
+              <span class="pro-type-tag"><?= htmlspecialchars($type) ?></span>
+              <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
           </div>
         </div>
 
@@ -281,6 +307,42 @@ require 'header.php';
           <div class="pro-minimap" id="minimap-<?= $idx ?>"></div>
           <?php endif; ?>
         </div>
+
+        <!-- Avis Google -->
+        <?php if (!empty($pro['reviews'])): ?>
+        <div class="pro-reviews">
+          <div class="pro-reviews-header">
+            <span class="pro-reviews-title">Avis Google</span>
+            <div class="pro-reviews-nav">
+              <button class="review-arrow review-prev" onclick="slideReview(<?= $idx ?>, -1)" aria-label="Avis précédent">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="review-arrow review-next" onclick="slideReview(<?= $idx ?>, 1)" aria-label="Avis suivant">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="pro-reviews-track" id="reviews-<?= $idx ?>">
+            <?php foreach ($pro['reviews'] as $ri => $review): ?>
+            <div class="pro-review-card" <?= $ri > 0 ? 'style="display:none;"' : '' ?>>
+              <div class="review-meta">
+                <strong><?= htmlspecialchars($review['auteur']) ?></strong>
+                <?php if (!empty($review['note'])): ?>
+                <span class="review-stars"><?= str_repeat('★', (int)$review['note']) ?><?= str_repeat('☆', 5 - (int)$review['note']) ?></span>
+                <?php endif; ?>
+                <?php if (!empty($review['date'])): ?>
+                <span class="review-date"><?= htmlspecialchars($review['date']) ?></span>
+                <?php endif; ?>
+              </div>
+              <?php if (!empty($review['texte'])): ?>
+              <p class="review-text"><?= htmlspecialchars(mb_strimwidth($review['texte'], 0, 300, '…')) ?></p>
+              <?php endif; ?>
+            </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+        <?php endif; ?>
+
       </div>
       <?php endforeach; ?>
     </div>
@@ -400,6 +462,24 @@ require 'header.php';
 })();
 </script>
 <?php endif; ?>
+
+<!-- Carousel avis -->
+<script>
+function slideReview(proIdx, dir) {
+    var track = document.getElementById('reviews-' + proIdx);
+    if (!track) return;
+    var cards = track.querySelectorAll('.pro-review-card');
+    if (cards.length <= 1) return;
+    var current = -1;
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== 'none') { current = i; break; }
+    }
+    if (current === -1) return;
+    cards[current].style.display = 'none';
+    var next = (current + dir + cards.length) % cards.length;
+    cards[next].style.display = '';
+}
+</script>
 
 <!-- Schema.org -->
 <?php if ($selected_ville && !empty($pros)): ?>
