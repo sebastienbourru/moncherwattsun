@@ -12,14 +12,14 @@ $canonical  = $canonical ?? $site_url . $_SERVER['REQUEST_URI'];
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($page_title ?? $site_name) ?></title>
-  <meta name="description" content="<?= htmlspecialchars($meta_desc ?? 'Mon cher WattSun — simulateur solaire PVGIS, aides financières, annuaire installateurs, produits solaires. Données fiables, sources officielles.') ?>">
+  <meta name="description" content="<?= htmlspecialchars($meta_desc ?? 'Mon cher WattSun — simulateur solaire PVGIS, aides financières, annuaire installateurs. Données fiables, sources officielles.') ?>">
   <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Mon cher WattSun">
   <meta property="og:title" content="<?= htmlspecialchars($page_title ?? $site_name) ?>">
-  <meta property="og:description" content="<?= htmlspecialchars($meta_desc ?? 'Simulateur solaire PVGIS, aides financières, annuaire pros RGE, produits solaires.') ?>">
+  <meta property="og:description" content="<?= htmlspecialchars($meta_desc ?? 'Simulateur solaire PVGIS, aides financières, annuaire pros RGE.') ?>">
   <meta property="og:image" content="<?= htmlspecialchars($og_image) ?>">
   <meta property="og:url" content="<?= htmlspecialchars($canonical) ?>">
   <meta property="og:locale" content="fr_FR">
@@ -27,7 +27,7 @@ $canonical  = $canonical ?? $site_url . $_SERVER['REQUEST_URI'];
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="<?= htmlspecialchars($page_title ?? $site_name) ?>">
-  <meta name="twitter:description" content="<?= htmlspecialchars($meta_desc ?? 'Simulateur solaire PVGIS, aides financières, annuaire pros RGE, produits solaires.') ?>">
+  <meta name="twitter:description" content="<?= htmlspecialchars($meta_desc ?? 'Simulateur solaire PVGIS, aides financières, annuaire pros RGE.') ?>">
   <meta name="twitter:image" content="<?= htmlspecialchars($og_image) ?>">
 
   <!-- Favicon -->
@@ -43,7 +43,7 @@ $canonical  = $canonical ?? $site_url . $_SERVER['REQUEST_URI'];
     "@type": "Organization",
     "name": "Mon cher WattSun",
     "url": "https://moncherwattsun.fr",
-    "description": "Simulateur solaire PVGIS, aides financières, annuaire pros RGE, produits solaires en France",
+    "description": "Simulateur solaire PVGIS, aides financières, annuaire pros RGE en France",
     "sameAs": []
   }
   </script>
@@ -66,7 +66,6 @@ $canonical  = $canonical ?? $site_url . $_SERVER['REQUEST_URI'];
       <ul class="navbar-nav" id="navMenu">
         <li><a href="/simulateur" class="nav-link <?= ($active_page ?? '') === 'simulateur' ? 'active' : '' ?>">Simulateur</a></li>
         <li><a href="/aides" class="nav-link <?= ($active_page ?? '') === 'aides' ? 'active' : '' ?>">Aides 2026</a></li>
-        <li><a href="/produits" class="nav-link <?= ($active_page ?? '') === 'produits' ? 'active' : '' ?>">Produits solaires</a></li>
         <li><a href="/annuaire" class="nav-link <?= ($active_page ?? '') === 'annuaire' ? 'active' : '' ?>">Annuaire pros</a></li>
       </ul>
 
