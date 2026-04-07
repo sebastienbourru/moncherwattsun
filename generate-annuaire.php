@@ -131,7 +131,7 @@ foreach ($villes as $i => $ville) {
         if ($place_id) {
             $details_url = "https://maps.googleapis.com/maps/api/place/details/json"
                          . "?place_id={$place_id}"
-                         . "&fields=formatted_phone_number,website,opening_hours,url,geometry"
+                         . "&fields=formatted_phone_number,website,opening_hours,url,geometry,business_status,reviews,types"
                          . "&language=fr"
                          . "&key={$API_KEY}";
 
@@ -143,9 +143,50 @@ foreach ($villes as $i => $ville) {
             usleep(200000);
         }
 
+        // ── Filtrage entreprises fermées ──
+        $business_status = $details['business_status'] ?? ($place['business_status'] ?? 'OPERATIONAL');
+        if ($business_status === 'CLOSED_TEMPORARILY' || $business_status === 'CLOSED_PERMANENTLY') {
+            $skipped++;
+            continue;
+        }
+
         // Coordonnées GPS pour la carte
         $lat = $place['geometry']['location']['lat'] ?? $ville['lat'];
         $lng = $place['geometry']['location']['lng'] ?? $ville['lng'];
+
+        // ── Traduction des types Google ──
+        $type_labels = [
+            'electrician' => 'Électricien',
+            'roofing_contractor' => 'Couvreur',
+            'general_contractor' => 'Entreprise générale',
+            'plumber' => 'Plombier',
+            'solar_energy_company' => 'Énergie solaire',
+            'home_improvement_store' => 'Rénovation',
+            'painter' => 'Peintre',
+            'heating_contractor' => 'Chauffagiste',
+            'construction_company' => 'Construction',
+            'energy_equipment_and_solutions' => 'Équipements énergétiques',
+        ];
+        $raw_types = $details['types'] ?? ($place['types'] ?? []);
+        $types_fr = [];
+        foreach ($raw_types as $t) {
+            if (isset($type_labels[$t])) {
+                $types_fr[] = $type_labels[$t];
+            }
+        }
+
+        // ── Avis Google ──
+        $reviews = [];
+        if (!empty($details['reviews'])) {
+            foreach ($details['reviews'] as $r) {
+                $reviews[] = [
+                    'auteur'  => $r['author_name'] ?? 'Anonyme',
+                    'note'    => $r['rating'] ?? null,
+                    'texte'   => $r['text'] ?? '',
+                    'date'    => $r['relative_time_description'] ?? '',
+                ];
+            }
+        }
 
         $pros[] = [
             'nom'       => $place['name'] ?? 'Entreprise',
@@ -161,6 +202,9 @@ foreach ($villes as $i => $ville) {
             'lat'       => $lat,
             'lng'       => $lng,
             'initiale'  => strtoupper(mb_substr($place['name'] ?? 'E', 0, 1)),
+            'types'     => $types_fr,
+            'reviews'   => $reviews,
+            'statut'    => $business_status,
         ];
 
         if (count($pros) >= 20) break;
