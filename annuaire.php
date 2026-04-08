@@ -104,7 +104,7 @@ $extra_head .= '
 </script>
 <style>
 .annuaire-map{width:100%;height:400px;border-radius:16px;margin-bottom:32px;border:1px solid #e5e7eb;overflow:hidden;}
-.pro-minimap{width:100%;height:180px;border-radius:12px;margin-top:12px;border:1px solid #e5e7eb;overflow:hidden;}
+.pro-minimap{width:100%;height:260px;border-radius:12px;margin-top:12px;border:1px solid #e5e7eb;overflow:hidden;}
 .tri-bar{display:flex;gap:8px;margin-bottom:24px;align-items:center;flex-wrap:wrap;}
 .tri-bar span{font-size:.85rem;color:var(--gray);font-weight:500;}
 .tri-btn{padding:6px 16px;border-radius:20px;font-size:.82rem;border:1px solid #e5e7eb;background:#fff;color:var(--dark);cursor:pointer;text-decoration:none;transition:all .2s;}
