@@ -125,7 +125,8 @@ $extra_head .= '
 .pro-detail a{color:var(--dark);text-decoration:none;}
 .pro-detail a:hover{color:var(--sky);}
 .pro-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
-.pro-bottom{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.pro-bottom{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;align-items:start;}
+.pro-bottom .pro-minimap{height:100%;min-height:220px;margin-top:0;}
 .pro-types{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
 .pro-type-tag{background:#EDE9FE;color:#5B21B6;font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:6px;}
 .pro-reviews{margin-top:16px;padding-top:16px;border-top:1px solid #e5e7eb;}
@@ -312,7 +313,7 @@ require 'header.php';
         <?php if (!empty($pro['reviews'])): ?>
         <div class="pro-reviews">
           <div class="pro-reviews-header">
-            <span class="pro-reviews-title">Avis Google</span>
+            <span class="pro-reviews-title">Avis Google les plus pertinents</span>
             <div class="pro-reviews-nav">
               <button class="review-arrow review-prev" onclick="slideReview(<?= $idx ?>, -1)" aria-label="Avis précédent">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
