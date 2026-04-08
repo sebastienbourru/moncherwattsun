@@ -237,7 +237,7 @@ require 'header.php';
     </div>
 
     <!-- ══════ LISTE DES PROS ══════ -->
-    <div class="reveal-on-scroll">
+    <div>
       <?php foreach ($pros as $idx => $pro): ?>
       <div class="pro-card-v2" id="pro-<?= $idx ?>">
         <div class="pro-header">
