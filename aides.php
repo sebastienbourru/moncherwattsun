@@ -234,47 +234,47 @@ require 'header.php';
     <!-- FAQ -->
     <div style="margin-top:64px;" class="reveal-on-scroll">
       <h2 style="margin-bottom:32px; text-align:center;">Questions fréquentes</h2>
-      <div class="faq-list" style="max-width:760px; margin:0 auto;">
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+      <div class="aides-faq-list" style="max-width:760px; margin:0 auto;">
+        <div class="aides-faq-item">
+          <button class="aides-faq-question" onclick="toggleFaq(this)">
             Peut-on cumuler plusieurs aides ?
-            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="aides-faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
+          <div class="aides-faq-answer">
+            <div class="aides-faq-answer-inner">
               Oui, dans la plupart des cas. La prime à l'autoconsommation est cumulable avec la TVA réduite et l'éco-PTZ. MaPrimeRénov' est cumulable avec l'éco-PTZ. Vérifiez toujours auprès de l'organisme concerné pour les règles de non-cumul locales.
             </div>
           </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+        <div class="aides-faq-item">
+          <button class="aides-faq-question" onclick="toggleFaq(this)">
             Faut-il obligatoirement un installateur RGE ?
-            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="aides-faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
+          <div class="aides-faq-answer">
+            <div class="aides-faq-answer-inner">
               Oui, pour toutes les aides publiques (MaPrimeRénov', éco-PTZ, prime à l'autoconsommation). Vérifiez la certification sur <a href="https://france-renov.gouv.fr/annuaire-rge" target="_blank" rel="noopener noreferrer" style="color:var(--sky);">france-renov.gouv.fr/annuaire-rge</a>.
             </div>
           </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+        <div class="aides-faq-item">
+          <button class="aides-faq-question" onclick="toggleFaq(this)">
             Les locataires peuvent-ils bénéficier d'aides ?
-            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="aides-faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
+          <div class="aides-faq-answer">
+            <div class="aides-faq-answer-inner">
               Pour le photovoltaïque fixe, non — les modifications structurelles nécessitent l'accord du propriétaire. En revanche, les locataires peuvent s'équiper de <strong>kits balcon plug-and-play</strong> (≤800W) sans autorisation. Certaines aides régionales existent pour ce cas.
             </div>
           </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+        <div class="aides-faq-item">
+          <button class="aides-faq-question" onclick="toggleFaq(this)">
             Existe-t-il des aides régionales ou locales ?
-            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="aides-faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
+          <div class="aides-faq-answer">
+            <div class="aides-faq-answer-inner">
               Oui, de nombreuses régions, départements et communes proposent des aides complémentaires. Le simulateur <a href="https://mes-aides.gouv.fr" target="_blank" rel="noopener noreferrer" style="color:var(--sky);">mes-aides.gouv.fr</a> et <a href="https://france-renov.gouv.fr" target="_blank" rel="noopener noreferrer" style="color:var(--sky);">france-renov.gouv.fr</a> les recensent pour votre territoire.
             </div>
           </div>
