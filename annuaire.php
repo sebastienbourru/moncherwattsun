@@ -444,11 +444,11 @@ require 'header.php';
             const minimap = L.map(minimapEl, {
                 center: [pro.lat, pro.lng],
                 zoom: 16,
-                zoomControl: false,
-                dragging: false,
+                zoomControl: true,
+                dragging: true,
                 scrollWheelZoom: false,
-                doubleClickZoom: false,
-                touchZoom: false,
+                doubleClickZoom: true,
+                touchZoom: true,
                 attributionControl: false
             });
             L.tileLayer(tileUrl, { maxZoom: 19 }).addTo(minimap);
