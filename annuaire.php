@@ -1,9 +1,7 @@
 <?php
 // annuaire.php v3 — Carte interactive, mini-cartes, tri, filtrage strict
-$page_title  = "Annuaire installateurs solaires — Lyon et agglomération | Mon cher WattSun";
-$meta_desc   = "Trouvez un installateur de panneaux solaires à Lyon, Villeurbanne, Caluire, Vénissieux, Bron et communes limitrophes. Avis, notes et coordonnées vérifiées.";
-$canonical   = "https://moncherwattsun.fr/annuaire";
 $active_page = 'annuaire';
+// Les meta title/desc/canonical seront définis après la détection de la ville sélectionnée
 
 // Charger le .env pour la clé Maps JS
 $env_file = __DIR__ . '/.env';
@@ -20,21 +18,21 @@ $MAPS_KEY = getenv('GOOGLE_PLACES_API_KEY') ?: '';
 
 // ── Villes ──
 $VILLES_ANNUAIRE = [
-    ['nom' => 'Lyon',               'cp' => '69000', 'slug' => 'lyon',               'lat' => 45.7640, 'lng' => 4.8357],
-    ['nom' => 'Villeurbanne',        'cp' => '69100', 'slug' => 'villeurbanne',        'lat' => 45.7667, 'lng' => 4.8799],
-    ['nom' => 'Caluire-et-Cuire',    'cp' => '69300', 'slug' => 'caluire-et-cuire',    'lat' => 45.7953, 'lng' => 4.8472],
-    ['nom' => 'Vénissieux',          'cp' => '69200', 'slug' => 'venissieux',          'lat' => 45.6973, 'lng' => 4.8864],
-    ['nom' => 'Bron',                'cp' => '69500', 'slug' => 'bron',                'lat' => 45.7386, 'lng' => 4.9131],
-    ['nom' => 'Saint-Fons',          'cp' => '69190', 'slug' => 'saint-fons',          'lat' => 45.7097, 'lng' => 4.8531],
-    ['nom' => 'Oullins',             'cp' => '69600', 'slug' => 'oullins',             'lat' => 45.7147, 'lng' => 4.8097],
-    ['nom' => 'Saint-Genis-Laval',   'cp' => '69230', 'slug' => 'saint-genis-laval',   'lat' => 45.6942, 'lng' => 4.7925],
-    ['nom' => 'Tassin-la-Demi-Lune', 'cp' => '69160', 'slug' => 'tassin-la-demi-lune', 'lat' => 45.7642, 'lng' => 4.7756],
-    ['nom' => 'Craponne',            'cp' => '69290', 'slug' => 'craponne',            'lat' => 45.7456, 'lng' => 4.7228],
-    ['nom' => 'Francheville',        'cp' => '69340', 'slug' => 'francheville',        'lat' => 45.7358, 'lng' => 4.7583],
-    ['nom' => 'Sainte-Foy-lès-Lyon', 'cp' => '69110', 'slug' => 'sainte-foy-les-lyon', 'lat' => 45.7331, 'lng' => 4.7953],
-    ['nom' => 'Pierre-Bénite',       'cp' => '69310', 'slug' => 'pierre-benite',       'lat' => 45.7044, 'lng' => 4.8256],
-    ['nom' => 'Décines-Charpieu',    'cp' => '69150', 'slug' => 'decines-charpieu',    'lat' => 45.7694, 'lng' => 4.9586],
-    ['nom' => 'Meyzieu',             'cp' => '69330', 'slug' => 'meyzieu',             'lat' => 45.7667, 'lng' => 5.0028],
+    ['nom' => 'Lyon',               'cp' => '69000', 'slug' => 'lyon',               'lat' => 45.7640, 'lng' => 4.8357, 'dep' => 'Rhône', 'ensoleillement' => '~2 020 h/an', 'desc_locale' => 'Capitale des Gaules et métropole la plus ensoleillée du quart nord-est, Lyon offre un potentiel solaire excellent avec ses toitures variées — des pentes de la Croix-Rousse aux toits plats de la Part-Dieu.'],
+    ['nom' => 'Villeurbanne',        'cp' => '69100', 'slug' => 'villeurbanne',        'lat' => 45.7667, 'lng' => 4.8799, 'dep' => 'Rhône', 'ensoleillement' => '~2 020 h/an', 'desc_locale' => 'Voisine immédiate de Lyon, Villeurbanne concentre de nombreuses copropriétés et maisons individuelles propices aux kits balcon comme aux installations en toiture.'],
+    ['nom' => 'Caluire-et-Cuire',    'cp' => '69300', 'slug' => 'caluire-et-cuire',    'lat' => 45.7953, 'lng' => 4.8472, 'dep' => 'Rhône', 'ensoleillement' => '~2 010 h/an', 'desc_locale' => 'Commune résidentielle au nord de Lyon, Caluire-et-Cuire dispose de nombreuses maisons avec jardin et toitures orientées plein sud, idéales pour le photovoltaïque.'],
+    ['nom' => 'Vénissieux',          'cp' => '69200', 'slug' => 'venissieux',          'lat' => 45.6973, 'lng' => 4.8864, 'dep' => 'Rhône', 'ensoleillement' => '~2 020 h/an', 'desc_locale' => 'Au sud-est de Lyon, Vénissieux combine zones pavillonnaires et grands ensembles. Plusieurs projets solaires collectifs y sont en cours dans le cadre de la rénovation urbaine.'],
+    ['nom' => 'Bron',                'cp' => '69500', 'slug' => 'bron',                'lat' => 45.7386, 'lng' => 4.9131, 'dep' => 'Rhône', 'ensoleillement' => '~2 020 h/an', 'desc_locale' => 'Commune de l\'est lyonnais, Bron offre un bon mix de maisons individuelles et de petits collectifs. Son terrain plat favorise les installations solaires sans masque d\'ombre.'],
+    ['nom' => 'Saint-Fons',          'cp' => '69190', 'slug' => 'saint-fons',          'lat' => 45.7097, 'lng' => 4.8531, 'dep' => 'Rhône', 'ensoleillement' => '~2 020 h/an', 'desc_locale' => 'Commune dynamique au sud de Lyon, Saint-Fons voit émerger des projets d\'autoconsommation collective, notamment dans ses nouveaux quartiers résidentiels.'],
+    ['nom' => 'Oullins',             'cp' => '69600', 'slug' => 'oullins',             'lat' => 45.7147, 'lng' => 4.8097, 'dep' => 'Rhône', 'ensoleillement' => '~2 010 h/an', 'desc_locale' => 'Sur la rive gauche du Rhône, Oullins allie centre-ville dense et quartiers pavillonnaires en pente. Les toitures sud y bénéficient d\'un ensoleillement généreux.'],
+    ['nom' => 'Saint-Genis-Laval',   'cp' => '69230', 'slug' => 'saint-genis-laval',   'lat' => 45.6942, 'lng' => 4.7925, 'dep' => 'Rhône', 'ensoleillement' => '~2 010 h/an', 'desc_locale' => 'En position surélevée au sud-ouest de Lyon, Saint-Genis-Laval profite d\'un dégagement optimal pour le solaire. Ses quartiers résidentiels sont particulièrement adaptés.'],
+    ['nom' => 'Tassin-la-Demi-Lune', 'cp' => '69160', 'slug' => 'tassin-la-demi-lune', 'lat' => 45.7642, 'lng' => 4.7756, 'dep' => 'Rhône', 'ensoleillement' => '~2 000 h/an', 'desc_locale' => 'À l\'ouest de Lyon, Tassin-la-Demi-Lune est une commune résidentielle prisée avec de nombreuses maisons individuelles. Un terrain idéal pour l\'autoconsommation solaire.'],
+    ['nom' => 'Craponne',            'cp' => '69290', 'slug' => 'craponne',            'lat' => 45.7456, 'lng' => 4.7228, 'dep' => 'Rhône', 'ensoleillement' => '~2 000 h/an', 'desc_locale' => 'Petit bourg résidentiel à l\'ouest de Lyon, Craponne est presque entièrement composée de maisons individuelles avec de grandes toitures — un terrain de jeu rêvé pour le solaire.'],
+    ['nom' => 'Francheville',        'cp' => '69340', 'slug' => 'francheville',        'lat' => 45.7358, 'lng' => 4.7583, 'dep' => 'Rhône', 'ensoleillement' => '~2 000 h/an', 'desc_locale' => 'Commune verdoyante de l\'ouest lyonnais, Francheville offre de belles expositions sud grâce à son relief vallonné et ses quartiers pavillonnaires bien orientés.'],
+    ['nom' => 'Sainte-Foy-lès-Lyon', 'cp' => '69110', 'slug' => 'sainte-foy-les-lyon', 'lat' => 45.7331, 'lng' => 4.7953, 'dep' => 'Rhône', 'ensoleillement' => '~2 010 h/an', 'desc_locale' => 'Perchée sur les hauteurs de Lyon, Sainte-Foy offre un ensoleillement privilégié et des vues dégagées. Les installations solaires y sont de plus en plus courantes.'],
+    ['nom' => 'Pierre-Bénite',       'cp' => '69310', 'slug' => 'pierre-benite',       'lat' => 45.7044, 'lng' => 4.8256, 'dep' => 'Rhône', 'ensoleillement' => '~2 010 h/an', 'desc_locale' => 'Petite commune au bord du Rhône, Pierre-Bénite mise sur la transition énergétique avec des projets de rénovation intégrant le solaire dans ses quartiers en transformation.'],
+    ['nom' => 'Décines-Charpieu',    'cp' => '69150', 'slug' => 'decines-charpieu',    'lat' => 45.7694, 'lng' => 4.9586, 'dep' => 'Rhône', 'ensoleillement' => '~2 020 h/an', 'desc_locale' => 'En plein développement à l\'est de Lyon, Décines-Charpieu voit fleurir les constructions neuves souvent équipées de panneaux solaires dès la conception.'],
+    ['nom' => 'Meyzieu',             'cp' => '69330', 'slug' => 'meyzieu',             'lat' => 45.7667, 'lng' => 5.0028, 'dep' => 'Rhône', 'ensoleillement' => '~2 020 h/an', 'desc_locale' => 'Aux portes de la plaine de l\'Ain, Meyzieu bénéficie d\'un terrain plat et dégagé. Ses nombreux lotissements pavillonnaires sont parfaits pour le photovoltaïque résidentiel.'],
 ];
 
 // ── Ville sélectionnée ──
@@ -47,6 +45,18 @@ if ($selected_slug) {
             break;
         }
     }
+}
+
+// ── Meta dynamiques par ville ──
+if ($selected_ville) {
+    $ville_nom = $selected_ville['nom'];
+    $page_title  = "Installateurs panneaux solaires à {$ville_nom} ({$selected_ville['cp']}) — Annuaire | Mon cher WattSun";
+    $meta_desc   = "Trouvez un installateur de panneaux solaires à {$ville_nom}. Avis Google, notes, coordonnées, horaires et carte. Ensoleillement : {$selected_ville['ensoleillement']}.";
+    $canonical   = "https://moncherwattsun.fr/annuaire/{$selected_ville['slug']}";
+} else {
+    $page_title  = "Annuaire installateurs solaires — Lyon et agglomération | Mon cher WattSun";
+    $meta_desc   = "Trouvez un installateur de panneaux solaires à Lyon, Villeurbanne, Caluire, Vénissieux, Bron et communes limitrophes. Avis, notes et coordonnées vérifiées.";
+    $canonical   = "https://moncherwattsun.fr/annuaire";
 }
 
 // ── Lecture cache ──
@@ -93,13 +103,26 @@ if ($selected_ville && !empty($pros)) {
     $extra_head .= '<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>';
 }
 
+// BreadcrumbList schema.org
+if ($selected_ville) {
+    $extra_head .= '
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://moncherwattsun.fr/"},{"@type":"ListItem","position":2,"name":"Annuaire","item":"https://moncherwattsun.fr/annuaire"},{"@type":"ListItem","position":3,"name":"' . htmlspecialchars($selected_ville['nom']) . '","item":"https://moncherwattsun.fr/annuaire/' . $selected_ville['slug'] . '"}]}
+</script>';
+} else {
+    $extra_head .= '
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://moncherwattsun.fr/"},{"@type":"ListItem","position":2,"name":"Annuaire installateurs","item":"https://moncherwattsun.fr/annuaire"}]}
+</script>';
+}
+
 $extra_head .= '
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SearchResultsPage",
-  "name": "Annuaire installateurs solaires — Lyon et agglomération",
-  "url": "https://moncherwattsun.fr/annuaire"
+  "name": "' . ($selected_ville ? 'Installateurs solaires à ' . htmlspecialchars($selected_ville['nom']) : 'Annuaire installateurs solaires — Lyon et agglomération') . '",
+  "url": "' . htmlspecialchars($canonical) . '"
 }
 </script>
 <style>
@@ -213,6 +236,17 @@ require 'header.php';
 
     <?php else: ?>
     <!-- ══════ PAGE VILLE ══════ -->
+
+    <!-- Bloc local unique -->
+    <?php if (!empty($selected_ville['desc_locale'])): ?>
+    <div style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1px solid #FDE68A;border-radius:16px;padding:24px 28px;margin-bottom:24px;" class="reveal-on-scroll">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#92400E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        <strong style="color:#92400E;font-size:.9rem;">Le solaire à <?= htmlspecialchars($selected_ville['nom']) ?> · Ensoleillement : <?= htmlspecialchars($selected_ville['ensoleillement']) ?></strong>
+      </div>
+      <p style="margin:0;font-size:.88rem;color:#78350F;line-height:1.7;"><?= htmlspecialchars($selected_ville['desc_locale']) ?></p>
+    </div>
+    <?php endif; ?>
 
     <!-- Notice RGE -->
     <div class="notice notice-warning reveal-on-scroll" style="margin-bottom:24px;">
@@ -438,22 +472,42 @@ require 'header.php';
             .addTo(mapVille)
             .bindPopup(popupContent);
 
-        // ── Mini-carte pour chaque pro ──
+        // ── Mini-carte lazy loading ──
         const minimapEl = document.getElementById('minimap-' + idx);
         if (minimapEl) {
-            const minimap = L.map(minimapEl, {
-                center: [pro.lat, pro.lng],
-                zoom: 16,
-                zoomControl: true,
-                dragging: true,
-                scrollWheelZoom: false,
-                doubleClickZoom: true,
-                touchZoom: true,
-                attributionControl: false
-            });
-            L.tileLayer(tileUrl, { maxZoom: 19 }).addTo(minimap);
-            L.marker([pro.lat, pro.lng], { title: pro.nom }).addTo(minimap);
+            minimapEl.dataset.lat = pro.lat;
+            minimapEl.dataset.lng = pro.lng;
+            minimapEl.dataset.title = pro.nom;
         }
+    });
+
+    // Lazy load mini-maps with IntersectionObserver
+    var minimapObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var el = entry.target;
+                if (el.dataset.loaded) return;
+                el.dataset.loaded = '1';
+                var lat = parseFloat(el.dataset.lat);
+                var lng = parseFloat(el.dataset.lng);
+                var minimap = L.map(el, {
+                    center: [lat, lng],
+                    zoom: 16,
+                    zoomControl: true,
+                    dragging: true,
+                    scrollWheelZoom: false,
+                    doubleClickZoom: true,
+                    touchZoom: true,
+                    attributionControl: false
+                });
+                L.tileLayer(tileUrl, { maxZoom: 19 }).addTo(minimap);
+                L.marker([lat, lng], { title: el.dataset.title || '' }).addTo(minimap);
+                minimapObserver.unobserve(el);
+            }
+        });
+    }, { rootMargin: '200px' });
+    document.querySelectorAll('.pro-minimap').forEach(function(el) {
+        minimapObserver.observe(el);
     });
 
     // Ajuster le zoom pour voir tous les marqueurs
