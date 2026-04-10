@@ -101,25 +101,25 @@ require 'header.php';
     </details>
     <?php endforeach; ?>
 
-    <!-- CTA -->
-    <div class="cta-strip reveal-on-scroll" style="border-radius:var(--radius-xl); margin-top:64px;">
-      <div class="container" style="padding:48px;">
-        <div class="cta-strip-inner">
-          <div>
-            <h2>Prêt à passer au solaire ?</h2>
-            <p>Simulez votre production en 2 minutes — c'est gratuit et basé sur les données PVGIS.</p>
-          </div>
-          <div class="cta-strip-btns">
-            <a href="/simulateur" class="btn btn-primary btn-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              Lancer le simulateur
-            </a>
-            <a href="/aides" class="btn btn-ghost btn-lg">Voir les aides 2026</a>
-          </div>
-        </div>
+  </div>
+</section>
+
+<!-- CTA SIMULATEUR -->
+<section class="cta-strip reveal-on-scroll">
+  <div class="container">
+    <div class="cta-strip-inner">
+      <div>
+        <h2>Prêt à passer au solaire ?</h2>
+        <p>Simulez votre production en 2 minutes — c'est gratuit et basé sur les données PVGIS.</p>
+      </div>
+      <div class="cta-strip-btns">
+        <a href="/simulateur" class="btn btn-primary btn-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Lancer le simulateur
+        </a>
+        <a href="/aides" class="btn btn-ghost btn-lg">Voir les aides 2026</a>
       </div>
     </div>
-
   </div>
 </section>
 
