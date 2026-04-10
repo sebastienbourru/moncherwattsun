@@ -112,6 +112,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
 $extra_head = '
 <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://moncherwattsun.fr/"},{"@type":"ListItem","position":2,"name":"Simulateur solaire","item":"https://moncherwattsun.fr/simulateur"}]}
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -120,6 +123,17 @@ $extra_head = '
   "applicationCategory": "UtilityApplication",
   "description": "Estimez la production annuelle de vos panneaux solaires grâce aux données PVGIS de la Commission Européenne.",
   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Comment fonctionne le simulateur solaire ?", "acceptedAnswer": {"@type": "Answer", "text": "Le simulateur utilise l\u0027API PVGIS de la Commission Européenne. Vous sélectionnez votre ville, la puissance souhaitée et l\u0027orientation de vos panneaux. L\u0027outil calcule la production annuelle estimée en kWh, les économies et le CO2 évité."}},
+    {"@type": "Question", "name": "Les données PVGIS sont-elles fiables ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. PVGIS est développé par le Centre Commun de Recherche (JRC) de la Commission Européenne. Il utilise des données satellite d\u0027irradiation solaire sur plus de 10 ans. C\u0027est la référence utilisée par les professionnels du solaire."}},
+    {"@type": "Question", "name": "Quelle puissance de panneaux solaires choisir ?", "acceptedAnswer": {"@type": "Answer", "text": "Pour une maison individuelle, 3 kWc couvrent environ 30-50% de la consommation d\u0027un foyer moyen. 6 kWc permettent une autoconsommation plus importante. La puissance idéale dépend de votre consommation, de la surface disponible et de votre budget."}}
+  ]
 }
 </script>';
 
